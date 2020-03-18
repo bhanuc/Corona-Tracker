@@ -3,7 +3,7 @@ import React from "react";
 import algoliasearch from "algoliasearch";
 
 import CardComponent from "../components/card";
-import HeaderComponent from "../components/BaseHeader";
+import HeaderComponent from "../components/baseHeader";
 
 const client = algoliasearch("PYRN2P2666", "4cde6a799267316bf3e705219c545b5b");
 
