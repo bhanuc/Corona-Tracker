@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React from "react";
 import algoliasearch from "algoliasearch";
-
-import CardComponent from "../components/card";
-import HeaderComponent from "../components/BaseHeader";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import HeaderComponent from "../components/baseHeader";
 
 const client = algoliasearch("PYRN2P2666", "4cde6a799267316bf3e705219c545b5b");
 
@@ -40,24 +39,20 @@ class Home extends React.Component {
   render() {
     return (
       <div className="bg-gray-100 font-sans leading-normal tracking-normal">
-        <HeaderComponent
-          handleChange={this.handleChange}
-          heading=" Find your nearest Corona Test Center"
-          search
-        />
-        <div className="px-2 pt-40">
-          <div className="flex mb-4 -mx-2">
-            {this.state.centers.map(center => {
-              return (
-                <CardComponent
-                  key={center.name}
-                  location={this.state.location}
-                  center={center}
-                />
-              );
-            })}
-          </div>
-        </div>
+        <HeaderComponent handleChange={this.handleChange} heading="Map" />
+        <Map center={[lat, lng]} zoom={13}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={position}>
+            <Popup>
+              A pretty CSS3 popup.
+              <br />
+              Easily customizable.
+            </Popup>
+          </Marker>
+        </Map>
       </div>
     );
   }
