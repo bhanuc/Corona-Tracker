@@ -9,12 +9,10 @@ const client = algoliasearch("PYRN2P2666", "4cde6a799267316bf3e705219c545b5b");
 
 const index = client.initIndex("corona-test-centers");
 
-function get_location() {}
-
 class Home extends React.Component {
   state = {
     centers: [],
-    location: { lat: 12.9852, lng: 77.6433 },
+    location: { lat: 13.6379369, lng: 77.6433 },
     address: "",
     search: ""
   };
@@ -46,7 +44,7 @@ class Home extends React.Component {
           search
         />
         <div className="px-2 pt-40">
-          <div className="flex mb-4 -mx-2">
+          <div className="flex flex-wrap mb-4 -mx-2">
             {this.state.centers.map(center => {
               return (
                 <CardComponent
