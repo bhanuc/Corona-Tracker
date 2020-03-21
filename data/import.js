@@ -3,8 +3,10 @@ const { join } = require("path");
 const path = require("path");
 const csvtojson = require("csvtojson");
 
+const { searchKey, searchSecret } = process.env;
+
 const algoliasearch = require("algoliasearch");
-const client = algoliasearch("PYRN2P2666", "642cc47dd3f3fae7785ab8d7c33d646a");
+const client = algoliasearch(searchKey, searchSecret);
 const algoliaIndex = client.initIndex("corona-test-centers");
 
 const dirs = async path => {
