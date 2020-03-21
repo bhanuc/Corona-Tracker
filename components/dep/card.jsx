@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDirections } from "@fortawesome/free-solid-svg-icons";
 
-import { navigate, distance } from "./utils";
+import { navigate, distance } from "../utils";
 
 const card = ({ center, location }) => {
   // const phoneLink = `tel:${center.phone}`;

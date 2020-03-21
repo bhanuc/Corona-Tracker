@@ -1,10 +1,11 @@
 import React from "react";
 import MaterialTable from "material-table";
+import { navigate } from "./utils";
 
 const tableContent = ({ centers }) => {
   return (
     <MaterialTable
-      title="Positioning Actions Column Preview"
+      title="Search By Location"
       columns={[
         { title: "Name", field: "name" },
         { title: "State", field: "state" },
@@ -15,7 +16,10 @@ const tableContent = ({ centers }) => {
         {
           icon: "map",
           tooltip: "Open in Maps",
-          onClick: (event, rowData) => alert("You saved " + rowData.name)
+          onClick: (event, { _geoloc }) => {
+            navigate(_geoloc);
+          }
+          // ("You saved " + rowData.name)
         }
       ]}
       options={{
